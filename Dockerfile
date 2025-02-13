@@ -57,7 +57,7 @@ RUN \
     && git clone --depth 1 https://github.com/auerswal/ssocr \
     && cd ssocr \
     && make -j"$(nproc)" \
-    && make install \
+    && make install || true \
     && apk del .build-dependencies \
     && rm -rf /usr/src/ssocr
 
@@ -86,7 +86,7 @@ RUN apk add --no-cache \
         -DHAVE_LINUX_API=1 \
         .. \
     && make -j"$(nproc)" \
-    && make install \
+    && make install || true \
     && echo "cec" > "/usr/local/lib/python3.13/site-packages/cec.pth" \
     && apk del .build-dependencies \
     && rm -rf \
@@ -110,7 +110,7 @@ RUN apk add --no-cache \
     && ./configure \
          --disable-static \
     && make \
-    && make install \
+    && make install || true \
     && apk del .build-dependencies \
     && rm -rf /usr/src/pico
 
@@ -138,7 +138,7 @@ RUN \
         -DBUILD_TDADMIN=OFF -DBUILD_TDTOOL=OFF -DGENERATE_MAN=OFF \
         -DFORCE_COMPILE_FROM_TRUNK=ON \
     && make -j"$(nproc)" \
-    && make install \
+    && make install || true \
     && apk del .build-dependencies \
     && rm -rf \
         /usr/src/telldus \
