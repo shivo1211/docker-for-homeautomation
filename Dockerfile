@@ -54,7 +54,7 @@ RUN \
     && apk add --no-cache --virtual .build-dependencies \
         build-base \
         imlib2-dev \
-    && git clone --depth 1 -b "v3.1.3" https://github.com/auerswal/ssocr \
+    && git clone --depth 1 https://github.com/auerswal/ssocr \
     && cd ssocr \
     && make -j"$(nproc)" \
     && make install \
