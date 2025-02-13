@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM ${BUILD_FROM}
+FROM homeassistant/home-assistant:latest
 
 ARG \
     BUILD_ARCH \
